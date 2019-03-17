@@ -4,4 +4,5 @@ members = [
     "guessing_game",
     "common_concepts",
     "minigrep",
+    "state_vs_types",
 ]
