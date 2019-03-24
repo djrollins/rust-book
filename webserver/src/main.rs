@@ -1,11 +1,8 @@
+use std::fs;
+use std::io::prelude::*;
+use std::net::{TcpListener, TcpStream};
 use std::thread;
 use std::time::Duration;
-use std::io::prelude::*;
-use std::fs;
-use std::net::{
-    TcpListener,
-    TcpStream,
-};
 
 fn main() {
     let listener = TcpListener::bind("127.1:7878").unwrap();
