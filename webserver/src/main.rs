@@ -26,11 +26,15 @@ fn handle_connection(mut stream: TcpStream) {
     let sleep = b"GET /sleep HTTP/1.1\r\n";
 
     let (status_line, filename) = if buffer.starts_with(get) {
+        println!("/: Returning hello.html");
         ("HTTP/1.1 200 OK", "hello.html")
     } else if buffer.starts_with(sleep) {
+        println!("/sleep: Sleeping");
         thread::sleep(Duration::from_secs(5));
+        println!("/sleep: Returning slept.html");
         ("HTTP/1.1 200 OK", "slept.html")
     } else {
+        println!("/*: Returning 404.html");
         ("HTTP/1.1 404 NOT FOUND", "404.html")
     };
 
